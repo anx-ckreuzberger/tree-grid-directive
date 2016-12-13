@@ -10,7 +10,13 @@
                     "   <thead>\n" +
                     "     <tr>\n" +
                     "       <th><a ng-show=\"expandingProperty.sortable\" ng-click=\"sortBy(expandingProperty)\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</a><span ng-hide=\"expandingProperty.sortable\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</span><i ng-show=\"expandingProperty.sorted\" style=\"line-height: inherit\" class=\"{{expandingProperty.sortingIcon}} pull-right\"></i></th>\n" +
-                    "       <th ng-repeat=\"col in ::colDefinitions track by $index\"><div role=\"button\" ng-show=\"::col.sortable\" ng-click=\"sortBy(col)\">{{col.displayName || col.field}} <span ng-hide=\"::col.sortable\">{{col.displayName || col.field}}</span><i style=\"line-height: inherit\"  ng-show=\"col.sorted\" class=\"{{col.sortingIcon}} pull-right\"></i></div></th>\n" +
+                    "       <th ng-repeat=\"col in ::colDefinitions track by $index\"><div role=\"button\" ng-show=\"::col.sortable\" ng-click=\"sortBy(col)\">{{col.displayName || col.field}} <span ng-hide=\"::col.sortable\">{{col.displayName || col.field}}</span>" +
+                    "               <i style=\"line-height: inherit\" ng-show=\"!col.sortDirection || col.sortDirection == 'none' || col.sortDirection == ''\" " +
+                    "                               class=\"{{ notSortedIcon }} pull-right\"></i>" +
+                    "               <i style=\"line-height: inherit\" ng-show=\"col.sorted\" " +
+                    "                               class=\"{{ col.sortingIcon }} pull-right\"></i>" +
+                    "           </div>" +
+                    "       </th>\n" +
                     "     </tr>\n" +
                     "   </thead>\n" +
                     "   <tbody>\n" +
@@ -104,7 +110,11 @@
                         attrs.iconLeaf = attrs.iconLeaf ? attrs.iconLeaf : 'fa fa-file-o';
                         attrs.sortedAsc = attrs.sortedAsc ? attrs.sortedAsc : 'fa fa-sort-asc';
                         attrs.sortedDesc = attrs.sortedDesc ? attrs.sortedDesc : 'fa fa-sort-desc';
+                        attrs.notSortedIcon = attrs.notSortedIcon ? attrs.notSortedIcon : 'fa fa-sort';
                         attrs.expandLevel = attrs.expandLevel ? attrs.expandLevel : '0';
+
+                        scope.notSortedIcon = attrs.notSortedIcon;
+
                         expand_level = parseInt(attrs.expandLevel, 10);
 
                         if (!scope.treeData) {
