@@ -9,8 +9,8 @@
                     " <table class=\"table tree-grid\">\n" +
                     "   <thead>\n" +
                     "     <tr>\n" +
-                    "       <th><a ng-show=\"expandingProperty.sortable\" ng-click=\"sortBy(expandingProperty)\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</a><span ng-hide=\"expandingProperty.sortable\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</span><i ng-show=\"expandingProperty.sorted\" class=\"{{expandingProperty.sortingIcon}} pull-right\"></i></th>\n" +
-                    "       <th ng-repeat=\"col in ::colDefinitions track by $index\"><a ng-show=\"::col.sortable\" ng-click=\"sortBy(col)\">{{col.displayName || col.field}}</a><span ng-hide=\"::col.sortable\">{{col.displayName || col.field}}</span><i ng-show=\"col.sorted\" class=\"{{col.sortingIcon}} pull-right\"></i></th>\n" +
+                    "       <th><a ng-show=\"expandingProperty.sortable\" ng-click=\"sortBy(expandingProperty)\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</a><span ng-hide=\"expandingProperty.sortable\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</span><i ng-show=\"expandingProperty.sorted\" style=\"line-height: inherit\" class=\"{{expandingProperty.sortingIcon}} pull-right\"></i></th>\n" +
+                    "       <th ng-repeat=\"col in ::colDefinitions track by $index\"><div role=\"button\" ng-show=\"::col.sortable\" ng-click=\"sortBy(col)\">{{col.displayName || col.field}} <span ng-hide=\"::col.sortable\">{{col.displayName || col.field}}</span><i style=\"line-height: inherit\"  ng-show=\"col.sorted\" class=\"{{col.sortingIcon}} pull-right\"></i></div></th>\n" +
                     "     </tr>\n" +
                     "   </thead>\n" +
                     "   <tbody>\n" +
@@ -102,8 +102,8 @@
                         attrs.iconExpand = attrs.iconExpand ? attrs.iconExpand : 'fa fa-plus';
                         attrs.iconCollapse = attrs.iconCollapse ? attrs.iconCollapse : 'fa fa-minus';
                         attrs.iconLeaf = attrs.iconLeaf ? attrs.iconLeaf : 'fa fa-file-o';
-                        attrs.sortedAsc = attrs.sortedAsc ? attrs.sortedAsc : 'fa fa-angle-up';
-                        attrs.sortedDesc = attrs.sortedDesc ? attrs.sortedDesc : 'fa fa-angle-down';
+                        attrs.sortedAsc = attrs.sortedAsc ? attrs.sortedAsc : 'fa fa-sort-asc';
+                        attrs.sortedDesc = attrs.sortedDesc ? attrs.sortedDesc : 'fa fa-sort-desc';
                         attrs.expandLevel = attrs.expandLevel ? attrs.expandLevel : '0';
                         expand_level = parseInt(attrs.expandLevel, 10);
 
