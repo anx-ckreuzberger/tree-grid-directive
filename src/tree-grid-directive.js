@@ -6,7 +6,7 @@
             function ($templateCache) {
                 $templateCache.put('template/treeGrid/treeGrid.html',
                     "<div class=\"table-responsive\">\n" +
-                    " <table class=\"table tree-grid table-bordered\">\n" +
+                    " <table class=\"table tree-grid {{ tableClasses }}\">\n" +
                     "   <thead>\n" +
                     "     <tr>\n" +
                     "       <th><a ng-show=\"expandingProperty.sortable\" ng-click=\"sortBy(expandingProperty)\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</a><span ng-hide=\"expandingProperty.sortable\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</span><i ng-show=\"expandingProperty.sorted\" style=\"line-height: inherit\" class=\"{{expandingProperty.sortingIcon}} pull-right\"></i></th>\n" +
@@ -87,6 +87,7 @@
                     },
                     replace: true,
                     scope: {
+                        tableClasses: '@', // classes for the treegrid <table>
                         treeData: '=',
                         colDefs: '=',
                         expandOn: '=',
