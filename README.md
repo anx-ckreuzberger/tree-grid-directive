@@ -1,6 +1,12 @@
 tree-grid-directive
 ===================
 
+This is a fork of the original [tree-grid-directive](https://github.com/khan4019/tree-grid-directive) by [khan4019](https://github.com/khan4019/).
+
+We improved performance by using one time binding for some icons, and did some layout fixes that work for us (but maybe not for you). Below you can find the "old" readme.
+
+# Old Readme (not touched)
+
 A grid to display data in tree structure by using Angular and Bootstrap.
 
 ### It's open source (MIT license)
